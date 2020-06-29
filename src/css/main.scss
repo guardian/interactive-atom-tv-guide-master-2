@@ -1,0 +1,1103 @@
+@import "mq";
+@import "fonts";
+$lightGold: #eacca0;
+$mediumGold: #ab8958;
+$darkGold: #6b5840;
+$black: #121212;
+$grey: #dcdcdc; // Uncomment for embeds
+//@import "embed";
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+
+.element-atom,
+.interactive-atom {
+  margin: 0 !important;
+}
+
+body {
+  font-family: "Guardian Headline Regular", Georgia, serif;
+  font-weight: 400;
+
+  over a {
+    color: $darkGold;
+  }
+
+  .android &,
+  .ios & {
+    overflow-y: scroll;
+  }
+}
+
+img[data-lazy-img] {
+  width: auto;
+
+  &.inView {
+    animation-delay: 0.5s;
+    animation: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.interactive-blocks {
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.ad--wrapper--desktop {
+  display: none;
+
+  @include mq($from: desktop) {
+    display: block;
+    position: absolute;
+    width: 300px;
+    position: absolute;
+    right: 40px;
+    top: 60px;
+  }
+}
+
+.ad--wrapper--mobile {
+  display: block;
+  width: 100%;
+  background-color: $black;
+
+  @include mq($from: tablet) {
+    display: none;
+  }
+
+  .ad-slot {
+    margin-top: 14px;
+  }
+}
+
+.caption {
+  @include mq($from: tablet) {
+    // width: 400px;
+  }
+
+  svg {
+    fill: $darkGold;
+  }
+
+  .pre {
+    font-weight: 900;
+  }
+
+  p.caption-text {
+    margin-bottom: 0;
+    padding-top: 6px;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.body-image {
+  position: relative;
+
+  img {
+    width: 100%;
+
+    @include mq(desktop) {
+      width: 980px;
+    }
+
+    @include mq(leftCol) {
+      width: 990px;
+    }
+
+    @include mq(wide) {
+      width: 1070px;
+    }
+  }
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 28px !important;
+  font-family: "Guardian Headline Bold", Georgia, serif;
+  font-weight: 900;
+
+  @include mq($from: desktop) {
+    font-size: 36px;
+    line-height: 36px !important;
+  }
+
+  &.heading {
+    padding-top: 6px;
+    margin-top: 24px;
+
+    &:first-child {
+      border: none;
+      margin-top: auto;
+      padding-top: auto;
+    }
+  }
+}
+
+.image--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.1;
+  z-index: 10;
+}
+
+//header
+
+.where-to-go-header {
+  &--image {
+    min-height: 480px;
+    width: 100%;
+    background-size: 100%;
+    background-position: center;
+    position: relative;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 95vh;
+
+    @include mq($from: mobileLandscape) {
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .video {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: auto;
+      height: auto;
+      z-index: 0;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+
+      video {
+        object-fit: cover;
+      }
+    }
+
+    .video-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      height: 100vh;
+      z-index: -1;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+
+      @include mq($from: mobileLandscape) {
+        height: auto;
+        min-width: 100%;
+        min-height: 100%;
+      }
+
+      @include mq($from: tablet) {
+        top: 0;
+        -ms-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &--standfirst {
+    color: #121212;
+    right: 8px;
+    line-height: 18px;
+    background-color: #fff;
+
+    // padding: 6px 8px 24px;
+    h1 {
+      line-height: 36px;
+      letter-spacing: -0.5px;
+      margin: 6px 0 12px;
+
+      @include mq($from: tablet) {
+        width: 600px;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 24px;
+
+      @include mq($from: desktop) {
+        width: 600px;
+      }
+    }
+
+    .content__dateline {
+      font-size: 12px;
+
+      .content__dateline-wpd--modified {
+        color: #999999 !important;
+      }
+    }
+
+    .standfirst--wrapper {
+      width: 100%;
+
+      @include mq($from: desktop) {
+        width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @include mq($from: leftCol) {
+        width: 1140px;
+      }
+
+      @include mq($from: wide) {
+        width: 1300px;
+      }
+
+      .content__main-column {
+        .strap {
+          max-width: 80%;
+          padding-top: 4px;
+          padding-bottom: 12px;
+
+          @include mq($from: desktop) {
+            max-width: 100%;
+          }
+        }
+
+        @include mq($from: 620px) {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 0.0625rem;
+            background: $grey;
+          }
+        }
+      }
+
+      .byline-wrap {
+        border-top: 1px solid $grey;
+        border-bottom: 1px solid $grey;
+
+        p {
+          max-width: 80%;
+
+          @include mq($from: desktop) {
+            max-width: 100%;
+          }
+        }
+      }
+
+      .byline {
+        border: none;
+        margin-top: 0;
+        padding-top: 6px;
+        padding-bottom: 12px;
+        color: $darkGold;
+
+        a {
+          color: $darkGold;
+        }
+      }
+    }
+  }
+
+  &--title {
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+    bottom: 0;
+    margin-bottom: 12px;
+
+    @include mq(620px) {
+      padding-left: 60px;
+    }
+
+    @include mq(tablet) {
+      padding-left: 20px;
+      margin-bottom: 32px;
+    }
+
+    @include mq($from: desktop) {
+      bottom: 0;
+      padding-left: 0;
+    }
+
+    @include mq(leftCol) {
+      padding-left: 0px;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    .content__main-column {
+      max-width: none;
+      width: 90%;
+      padding: 0 10px 10px;
+      float: left;
+      // @include mq(tablet) {
+      //   margin-left: 30px;
+      // }
+
+      @include mq($until: mobileLandscape) {
+        margin-left: 6px;
+      }
+
+      @include mq($from: tablet) {
+        width: 100vw;
+        margin-right: 0;
+      }
+    }
+
+    h1 {
+      color: white;
+
+      @include mq(tablet) {
+        max-width: 510px;
+      }
+
+      @include mq($from: desktop) {
+        max-width: 620px;
+      }
+    }
+
+    .large {
+      line-height: 40px;
+      font-size: 36px;
+      font-family: "Guardian Headline Bold", Georgia, serif;
+      font-weight: 900;
+      box-decoration-break: clone;
+
+      @include mq($from: desktop) {
+        line-height: 54px;
+        font-size: 50px;
+      }
+    }
+
+    .light-highlight {
+      width: 100%;
+      background-color: $lightGold;
+      box-shadow: 6px 0 0 $lightGold, -6px 0 0 $lightGold;
+      color: $black;
+      padding-bottom: 6px;
+      line-height: 34px;
+      font-size: 20px;
+    }
+
+    .dark-highlight {
+      max-width: 700px;
+      background-color: $black;
+      box-shadow: 6px 0 0 $black, -6px 0 0 $black;
+    }
+  }
+}
+
+//menu
+
+.where-to-go--menu {
+  padding-top: 0;
+
+  ul {
+    padding: 8px 10px 12px 10px;
+
+    @include mq($from: leftCol) {
+      padding: 8px 0 12px 10px;
+    }
+  }
+
+  &.sticky {
+    position: fixed;
+    z-index: 20000;
+    top: 0;
+    background-color: #fff;
+    margin: 0;
+    width: 100%;
+    left: 0;
+    border-bottom: solid 1px $grey;
+
+    ul {
+      border: none;
+
+      @include mq($from: desktop) {
+        width: 590px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 420px;
+      }
+
+      @include mq($from: leftCol) {
+        padding-right: 342px;
+      }
+
+      @include mq($from: wide) {
+        padding-right: 306px;
+      }
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+    font-family: $f-sans-serif-text;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 6px;
+    line-height: 22px;
+
+    @include mq($from: desktop) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    &.jump {
+      opacity: 0.5;
+    }
+
+    &:after {
+      content: "/";
+      margin-left: 6px;
+      opacity: 0.5;
+    }
+
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
+}
+
+.header {
+  &[data-open="true"] {
+    .section-header--button {
+      svg {
+        transform: rotate(315deg);
+      }
+
+      .button {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.section-strap-line {
+  position: absolute;
+  bottom: 60px;
+  color: white;
+  font-family: Guardian Egyptian Web;
+  font-weight: 900;
+  z-index: 30;
+  font-size: 20px;
+  line-height: 21px;
+  width: 90%;
+  margin-left: 2%;
+
+  @include mq($from: tablet) {
+    bottom: 20px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .strapline-wrapper {
+    @include mq($from: desktop) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 980px;
+    }
+
+    @include mq($from: leftCol) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 1140px;
+    }
+
+    @include mq($from: wide) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 1300px;
+    }
+
+    .strapline {
+      display: block;
+
+      @include mq($from: tablet) {
+        width: 600px;
+      }
+    }
+  }
+}
+
+.section-header {
+  &--image {
+    overflow: hidden;
+    min-height: 600px;
+    background-color: #333;
+    position: relative;
+
+    @include mq($from: desktop) {
+      min-width: 500px;
+    }
+
+    @include mq($from: leftCol) {
+      min-height: 650px;
+    }
+
+    @include mq($from: wide) {
+      min-height: 750px;
+    }
+
+    img {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-position: center;
+
+      @include mq($from: phablet) {
+        width: auto;
+        height: 100%;
+        margin-left: 0;
+        display: block;
+      }
+
+      @include mq($from: tablet) {
+        width: 1000px;
+        height: auto;
+      }
+
+      @include mq($from: desktop) {
+        width: 100%;
+        height: auto;
+      }
+
+      &.bottom {
+        @include mq($from: leftCol) {
+          bottom: -50px;
+        }
+      }
+
+      &.top {
+        @include mq($from: leftCol) {
+          top: -50px;
+        }
+      }
+    }
+
+    .people-image {}
+
+    .places-image {}
+
+    .food-image {}
+
+    .writing-image {}
+  }
+
+  &--title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2000;
+    border-bottom: solid 1px #777;
+
+    @include mq($from: 620px) {
+      border: none;
+    }
+
+    .content__main-column {
+      padding-bottom: 60px;
+      background: $black;
+      width: 100vw;
+      max-width: none;
+
+      @include mq($from: 620px) {
+        padding-bottom: 12px;
+      }
+    }
+
+    h1,
+    h2 {
+      font-size: 36px;
+      line-height: 32px !important;
+      font-weight: 100;
+      color: $lightGold;
+      border-bottom: solid 1px #777;
+
+      @include mq($from: desktop) {
+        font-size: 50px;
+        line-height: 50px !important;
+      }
+    }
+
+    p {
+      font-family: "Guardian Headline Italic", Georgia, serif;
+      color: #fff;
+      max-width: 400px;
+      font-size: 18px;
+      line-height: 24px;
+      margin: 0;
+
+      @include mq($from: leftCol) {
+        font-size: 20px;
+        line-height: 26px;
+      }
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .gs-container {
+      @include mq(620px) {
+        max-width: 620px;
+      }
+
+      @include mq(tablet) {
+        max-width: 700px;
+      }
+
+      @include mq(desktop) {
+        max-width: 980px;
+      }
+
+      @include mq(leftCol) {
+        max-width: 1140px;
+      }
+
+      @include mq(wide) {
+        max-width: 1300px;
+      }
+    }
+  }
+
+  &--button {
+    display: flex;
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    z-index: 9999;
+    padding-bottom: 20px;
+
+    @include mq($from: 620px) {
+      display: none;
+    }
+
+    p.button {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: $f-sans-serif-text;
+      background-color: $black;
+      border: none;
+      margin-top: 10px;
+      padding: 1px 5px;
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+    }
+
+    svg {
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+.section {
+  h1 {
+    &.heading {
+      padding: 0;
+      margin-top: 6px;
+      line-height: 0px !important;
+
+      @include mq($from: tablet) {
+        padding-left: 0;
+      }
+    }
+
+    &.subheading {
+      padding: 0;
+      font-weight: 200;
+      border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+      padding-bottom: 12px;
+      padding-top: 0;
+
+      @include mq($from: tablet) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  h1,
+  p {
+    padding: 3px 10px 12px;
+  }
+
+  .heading .text {
+    line-height: 32px;
+
+    @include mq($from: leftCol) {
+      max-width: 610px;
+    }
+
+    &.label {
+      background-color: #ffe500;
+      font-size: 16px;
+      font-weight: 900;
+      color: #121212;
+      display: inline;
+      padding: 0px 4px;
+    }
+
+    &.date {
+      font-family: "Guardian Headline Regular";
+      font-weight: 200;
+      line-height: 32px;
+      color: #121212;
+
+      @include mq($from: desktop) {
+        line-height: 48px;
+      }
+    }
+  }
+
+  &.copy {
+    display: none;
+    background-color: white;
+    position: relative;
+    // padding-top: 6px;
+    padding-bottom: 24px;
+    margin-bottom: -24px;
+
+    // padding-left: 10px;
+    // padding-right: 10px;
+    @include mq($from: 620px) {
+      display: block;
+      // padding-left: 20px;
+    }
+
+    @include mq($from: desktop) {
+      width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      // padding-left: 0;
+    }
+
+    @include mq($from: leftCol) {
+      width: 1140px;
+    }
+
+    @include mq($from: wide) {
+      width: 1300px;
+    }
+
+    &[data-open="true"] {
+      display: block;
+    }
+
+    .content__main-column {
+      @include mq($from: 620px) {
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          height: 100%;
+          width: 0.0625rem;
+          background: $grey;
+        }
+      }
+
+      &:nth-child(1) {
+        .heading {
+          border-top: none;
+          margin-top: 0;
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    h1 {
+      width: 100%;
+
+      @include mq($from: tablet) {
+        width: 600px;
+      }
+
+      &.heading {
+        border-top: solid 1px $grey;
+        border-bottom: solid 1px $grey;
+        color: $darkGold;
+        padding-top: 4px;
+        margin-top: 0;
+        padding-bottom: 8px;
+        width: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        @include mq($from: tablet) {
+          padding-bottom: 10px;
+        }
+
+        @include mq($from: mobileLandscape) {
+          width: 100vw;
+        }
+      }
+    }
+
+    .credit {
+      margin-left: 10px;
+      margin-bottom: 14px;
+      font-family: "Guardian Headline Italic Bold", Georgia, serif;
+      font-weight: 900;
+      color: $darkGold;
+      display: inline-block;
+      // line-height: 20px;
+    }
+
+    pre.copy {
+      width: auto;
+      font-family: $f-serif-text;
+      margin: 6px 10px 0;
+      line-height: 24px;
+      overflow: visible;
+      // padding-bottom: 12px;
+      white-space: pre-wrap;
+      /* css-3 */
+      white-space: -moz-pre-wrap;
+      /* Mozilla, since 1999 */
+      white-space: -pre-wrap;
+      /* Opera 4-6 */
+      white-space: -o-pre-wrap;
+      /* Opera 7 */
+      word-wrap: break-word;
+
+      /* Internet Explorer 5.5+ */
+      @include mq($from: tablet) {
+        width: 600px;
+        // overflow: visible;
+      }
+
+      .pullquote-wrap {
+        max-width: 620px;
+        position: relative;
+        left: -5px;
+
+        @include mq($from: desktop) {
+          left: -5px;
+        }
+
+        @include mq($from: leftCol) {
+          left: -140px;
+        }
+      }
+
+      .pullquote,
+      .pullquote-credit {
+        font-family: "Guardian Headline Regular", Georgia, serif;
+        font-weight: 400;
+        color: #fff;
+        font-size: 26px;
+        line-height: 34px;
+        display: inline;
+
+        @include mq($from: leftCol) {
+          font-size: 32px;
+          line-height: 40px;
+          position: relative;
+          z-index: 300;
+        }
+      }
+
+      .pullquote-credit {
+        color: $darkGold;
+        display: block;
+        background-color: #fff;
+        margin-top: 3px;
+        padding-bottom: 3px;
+        font-style: italic;
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      .pullquote {
+        background-color: $darkGold;
+        box-shadow: 5px 0 0 $darkGold, -5px 0 0 $darkGold;
+        padding-bottom: 3px;
+
+        &:before {
+          content: url("<%= path %>/assets/quote-small.svg");
+          display: inline;
+          margin-right: 5px;
+
+          @include mq($from: leftCol) {
+            content: url("<%= path %>/assets/quote.svg");
+          }
+        }
+      }
+    }
+  }
+}
+
+//APPS fixes
+
+.andriod,
+.ios {
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  .copy {
+    a {
+      color: $darkGold;
+    }
+  }
+
+  .caption p {
+    margin-top: 0;
+  }
+
+  .byline {
+    font-weight: 900 !important;
+  }
+
+  .caption-text {
+    font-family: $f-sans-serif-text;
+    font-size: 14px;
+    line-height: 16px;
+    color: #767676;
+    margin-top: 0;
+  }
+
+  .body-image {
+    margin-top: 0;
+    padding-top: 0;
+
+    img {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  .section h1,
+  .section p {
+    margin-top: 0;
+  }
+
+  .where-to-go--menu {
+    &.sticky {
+      position: relative;
+      background-color: transparent;
+      // padding: 0;
+      // margin: 0;
+      // padding-top: 6px;
+      // margin-top: 12px;
+    }
+  }
+
+  .section-header--button {
+    svg {
+      float: left;
+    }
+
+    .button {
+      float: left;
+      border-radius: 24px;
+      margin-left: 12px;
+    }
+  }
+
+  .ad--wrapper--mobile {
+    display: none;
+  }
+}
+
+@font-face {
+  font-family: "Guardian Headline Bold";
+  src: url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Bold.woff") format("woff"),
+    url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Guardian Headline Medium";
+  src: url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Medium.woff") format("woff"),
+    url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Guardian Headline Regular";
+  src: url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Regular.woff") format("woff"),
+    url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Guardian Headline Italic";
+  src: url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-RegularItalic.woff") format("woff"),
+    url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-RegularItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Guardian Headline Italic Bold";
+  src: url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-MediumItalic.woff") format("woff"),
+    url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+
+@import "related.scss";
