@@ -6,7 +6,7 @@ import Swiper from "../../node_modules/swiper/js/swiper"
 
 // load the docs data
 xr.get(
-  "https://interactive.guim.co.uk/docsdata-test/15jlhw8njZajdGo-EHw-01raOeVuAFgryRQpmEtq2ODE.json"
+  "https://interactive.guim.co.uk/docsdata-test/1fpDII4IT9eApzq-Kx9HXMXgVqjaDKkhErhkC32lly6s.json"
 ).then(resp => {
   var sheets = resp.data.sheets;
   console.log(sheets);
