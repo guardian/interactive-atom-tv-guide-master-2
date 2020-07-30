@@ -1,13 +1,12 @@
 import xr from "xr";
 import blocksTemplate from "../templates/blocks.html";
 import Mustache from "mustache";
-import Swiper from "../../node_modules/swiper/js/swiper"
-
+import Swiper from "../../node_modules/swiper/js/swiper";
 
 // load the docs data
 xr.get(
-  "https://interactive.guim.co.uk/docsdata-test/1fpDII4IT9eApzq-Kx9HXMXgVqjaDKkhErhkC32lly6s.json"
-).then(resp => {
+  "https://interactive.guim.co.uk/docsdata-test/11qOKsSqYIhS3TuU3W2ChgoHmwnrAvhc0TC3en-7vdic.json"
+).then((resp) => {
   var sheets = resp.data.sheets;
   console.log(sheets);
   // render just the html for the blocks
@@ -94,18 +93,16 @@ xr.get(
   // }, 1000);
 });
 
-
-
 //swiper
-var slidesPerView
+var slidesPerView;
 
 const initialiseSwiper = function () {
   if (window.innerWidth >= 660) {
-    slidesPerView = 2
-    console.log("desktop")
+    slidesPerView = 2;
+    console.log("desktop");
   } else {
-    slidesPerView = 1
-    console.log("mobile")
+    slidesPerView = 1;
+    console.log("mobile");
   }
 
   var swiper = new Swiper(".swiper-container", {
@@ -113,17 +110,17 @@ const initialiseSwiper = function () {
     spaceBetween: 20,
     pagination: {
       el: ".swiper-pagination",
-      clickable: true
+      clickable: true,
     },
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    }
-  })
-}
+      prevEl: ".swiper-button-prev",
+    },
+  });
+};
 
-initialiseSwiper()
+initialiseSwiper();
 window.addEventListener("resize", () => {
-  console.log("re-sizer")
-  initialiseSwiper()
-})
+  console.log("re-sizer");
+  initialiseSwiper();
+});
