@@ -5,11 +5,7 @@ import Swiper from "../../node_modules/swiper/js/swiper";
 
 // load the docs data
 xr.get(
-<<<<<<< HEAD
-  "https://interactive.guim.co.uk/docsdata-test/1VKccmyQ2GNZ4qR4_mETdxDCoXiynP1FZ6H-HxZ5XhDg.json"
-=======
-  "https://interactive.guim.co.uk/docsdata-test/1D5AqIM0mJn-7rYtbKjV7McltGI2Z8VZZ0yATACN8L08.json"
->>>>>>> a58698525fc46dca626c46b42ed2f07c25b163cc
+  "https://interactive.guim.co.uk/docsdata-test/14dettBHO5AylExniANn0ou3iLIvmAwUUoDiH3BOdtUg.json"
 ).then((resp) => {
   var sheets = resp.data.sheets;
   console.log(sheets);
